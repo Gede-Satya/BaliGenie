@@ -6,8 +6,7 @@ import {
   MapPin, 
   Sparkles,
   Phone, 
-  Mail, 
-  ArrowRight 
+  Mail,  
 } from 'lucide-react';
 
 const EXPLORE_LINKS = [

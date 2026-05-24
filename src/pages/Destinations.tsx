@@ -84,7 +84,7 @@ const CATEGORIES = ["Semua", "Pantai", "Alam", "Pura & Sejarah", "Budaya", "Kuli
 export default function Destinations() {
   const [activeCategory, setActiveCategory] = useState("Semua");
   const [searchQuery, setSearchQuery] = useState("");
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [, setHoveredId] = useState<number | null>(null);
 
   // Filter destinasi berdasarkan kategori & pencarian
   const filteredDestinations = DESTINATIONS.filter(dest => {

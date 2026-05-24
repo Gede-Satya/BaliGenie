@@ -3,8 +3,9 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY as string;
 const genAI = new GoogleGenerativeAI(API_KEY);
 
+
 const model = genAI.getGenerativeModel({
-  model: "gemini-2.5-flash",
+  model: "gemini-3.5-flash",
 });
 
 const SYSTEM_PROMPT = `Kamu adalah "BaliGenie", asisten AI perjalanan Bali yang cerdas, ramah, dan sangat berpengetahuan.

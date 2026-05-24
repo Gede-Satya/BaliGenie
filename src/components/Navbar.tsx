@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Sparkles, MapPin, BotMessageSquare, Menu, X } from "lucide-react";
+import { Sparkles, MapPin, Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
   { label: "Beranda", href: "/", icon: null },
@@ -101,12 +101,12 @@ export default function Navbar() {
           
           <div className="pt-4 border-t border-slate-100 mt-4">
             <Link 
-              to="/planner"
+              to="/chat"
               onClick={() => setIsMobileMenuOpen(false)}
               className="flex justify-center items-center gap-2 w-full bg-red-500 text-white px-5 py-3 rounded-full font-bold shadow-md hover:bg-red-600 active:scale-95"
             >
               <Sparkles className="w-5 h-5" />
-              Mulai Rencana Trip Sekarang
+              Chat Guide
             </Link>
           </div>
         </div>
