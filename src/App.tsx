@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { HashRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
 import ChatBot from "./components/ChatBot";
 import ChatWidget from "./components/ChatWidget";
@@ -8,7 +8,7 @@ import Eksplor from "./pages/Eksplor";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/chat" element={<ChatBot />} />
@@ -17,7 +17,7 @@ function App() {
         <Route path="/eksplor" element={<Eksplor />} />
       </Routes>
       <ChatWidget />
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
