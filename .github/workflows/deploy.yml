@@ -24,6 +24,15 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Validate API key
+        env:
+          VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
+        run: |
+          if [ -z "$VITE_GEMINI_API_KEY" ]; then
+            echo "::error::Secret VITE_GEMINI_API_KEY is not set or empty"
+            exit 1
+          fi
+          echo "API key length: ${#VITE_GEMINI_API_KEY}"
       - run: npm run build
         env:
           VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
