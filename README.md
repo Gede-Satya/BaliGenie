@@ -1,75 +1,117 @@
-# React + TypeScript + Vite
+# BaliGenie
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Asisten AI perjalanan Bali yang membantu kamu menemukan destinasi wisata, kuliner lokal, merencanakan itinerary, dan menjelajahi pesona Pulau Dewata — semuanya dalam satu aplikasi web.
 
-Currently, two official plugins are available:
+## Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+https://gede-satya.github.io/BaliGenie/
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- **Framework:** React 19 + TypeScript
+- **Build Tool:** Vite 8
+- **Styling:** Tailwind CSS 3
+- **Animasi:** Framer Motion
+- **Icons:** Lucide React
+- **Routing:** React Router DOM (HashRouter)
+- **AI:** Google Gemini 3.5 Flash
+- **HTTP Client:** Axios
+- **Deploy:** GitHub Pages / Docker (Google Cloud Run)
 
-Note: This will impact Vite dev & build performances.
+## Fitur Utama
 
-## Expanding the ESLint configuration
+- **Destinasi Wisata** — Jelajahi destinasi populer Bali seperti Ubud, Nusa Penida, Uluwatu, dan lainnya
+- **Eksplor** — Temukan kategori wisata: alam, budaya, kuliner, kehidupan malam
+- **Trip Planner** — Rencanakan perjalanan dengan AI berdasarkan durasi, budget, dan minat
+- **AI Chatbot** — Tanya apa saja tentang Bali ke asisten AI (destinasi, kuliner, tips, itinerary)
+- **Responsive Design** — Tampilan optimal di desktop dan mobile
+- **Animasi Halus** — Transisi dan hover effects dengan Framer Motion
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Struktur Folder
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+  ├─ components/          # Komponen UI reusable
+  │   ├─ Navbar.tsx
+  │   ├─ footer.tsx
+  │   ├─ DestinationCard.tsx
+  │   ├─ ChatBot.tsx
+  │   └─ ChatWidget.tsx
+  ├─ pages/               # Halaman aplikasi
+  │   ├─ Home.tsx
+  │   ├─ Destinations.tsx
+  │   ├─ Eksplor.tsx
+  │   └─ Trip.tsx
+  ├─ services/            # Layanan eksternal
+  │   └─ gemini.ts        # Google Gemini AI integration
+  ├─ assets/              # Aset statis
+  ├─ App.tsx              # Router & layout utama
+  └─ main.tsx             # Entry point
+public/
+  └─ images/              # Gambar destinasi
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Instalasi & Setup
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prasyarat
+- Node.js >= 20
+- npm
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Langkah
+
+```bash
+# clone repo
+git clone https://github.com/Gede-Satya/BaliGenie.git
+cd BaliGenie
+
+# install dependency
+npm install
+
+# jalankan development server
+npm run dev
 ```
+
+## Environment Variables
+
+Buat file `.env` di root project:
+
+| Key | Deskripsi |
+|-----|-----------|
+| `VITE_GEMINI_API_KEY` | API key Google Gemini untuk chatbot AI |
+
+> **Penting:** Jangan commit `.env` ke repository. File ini sudah ada di `.gitignore`.
+
+## Scripts
+
+| Command | Deskripsi |
+|---------|-----------|
+| `npm run dev` | Jalankan development server |
+| `npm run build` | Build untuk production (TypeScript check + Vite build) |
+| `npm run preview` | Preview hasil build production |
+| `npm run lint` | Jalankan ESLint |
+
+## Deploy
+
+### GitHub Pages (Otomatis)
+Push ke branch `main` akan otomatis trigger GitHub Actions untuk build dan deploy.
+
+### Docker / Google Cloud Run
+
+```bash
+# build image
+docker build -t baligenie .
+
+# run container
+docker run -p 8080:8080 baligenie
+```
+
+## Kontribusi
+
+1. Fork repo
+2. Buat branch baru: `git checkout -b feature/nama-fitur`
+3. Commit perubahan: `git commit -m "feat: deskripsi singkat"`
+4. Push dan buat Pull Request
+
+## Lisensi
+
+MIT
